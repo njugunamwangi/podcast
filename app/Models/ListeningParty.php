@@ -10,6 +10,15 @@ class ListeningParty extends Model
 {
     use HasFactory;
 
+    protected function casts(): array
+    {
+        return [
+            'is_active' => 'boolean',
+            'start_time' => 'datetime',
+            'end_time' => 'datetime',
+        ];
+    }
+
     public function episode(): BelongsTo
     {
         return $this->belongsTo(Episode::class);
