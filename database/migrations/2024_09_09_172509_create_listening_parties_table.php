@@ -16,7 +16,9 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Episode::class)->constrained()->cascadeOnDelete();
             $table->string('name');
+            $table->boolean('is_active')->default(true);
             $table->dateTime('start_time');
+            $table->dateTime('end_time')->nullable();
             $table->timestamps();
         });
     }
